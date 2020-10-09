@@ -1,0 +1,27 @@
+<launch>
+    <arg name="use_joy" default="false"/>
+    <arg name="map"/>
+
+    <!--<node pkg="tf2_ros" type="static_transform_publisher" name="map" args="0 0 0 0 0 0 1 map ps_odom"/>-->
+       <!--urg測域センサが車体前方100mmに位置するため。TF2のフレームをbase_link以下に配置-->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="urg_sensor" args="0.1 0 0 0 0 0 1 base_link urg_sensor"/>
+    <node pkg="urg_node" name="urg_node" type="urg_node" required="true">
+        <param name="frame_id" value="urg_sensor"/>
+    </node>
+
+
+    <include file="$(find ros_ps_rover_base)/launch/manual_ctrl.launch">
+        <arg name="use_joy" value="$(arg use_joy)"/>
+    </include>
+
+    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map)" output="screen"/>
+
+    <include file="$(find ros_auto_rover)/launch/util/move_base.launch"/>
+    <include file="$(find ros_auto_rover)/launch/util/amcl.launch"/>
+
+    <arg name="use_rviz" default="false"/>
+    <group if="$(arg use_rviz)">
+        <node pkg="rviz" type="rviz" name="rviz"/>
+    </group>
+
+</launch>
