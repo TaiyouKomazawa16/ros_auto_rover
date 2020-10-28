@@ -1,11 +1,15 @@
 local_costmap:
-    global_frame: ps_odom
+    global_frame: odom
     robot_base_frame: base_link
     update_frequency: 5.0
     publish_frequency: 0.2
-    static_map: false
+ 
     rolling_window: true
-    width: 5.0
-    height: 5.0
-    resolution: 0.01
+    width: 3
+    height: 3
+    resolution: 0.05
     meter_scoring: true
+
+    plugins:
+      - {name: obstacles_laser,           type: "costmap_2d::ObstacleLayer"}
+      - {name: inflation,                 type: "costmap_2d::InflationLayer"}
