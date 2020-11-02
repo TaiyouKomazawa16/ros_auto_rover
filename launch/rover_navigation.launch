@@ -5,10 +5,17 @@
         <arg name="use_joy" value="false"/>
     </include>
 
-    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map)" output="screen"/>
+    <group if="$(eval map != false)">
+        <node pkg="map_server" name="map_server" type="map_server" args="$(arg map)" output="screen"/>
+    </group>
 
-    <include file="$(find ros_auto_rover)/launch/util/move_base.launch"/>
-    <include file="$(find ros_auto_rover)/launch/util/amcl.launch"/>
+    <include file="$(find ros_auto_rover)/launch/util/move_base.launch">
+        <arg name="use_map" value="false" if="$(eval map == false)"/>
+    </include>
+
+    <include file="$(find ros_auto_rover)/launch/util/amcl.launch">
+        <arg name="use_map" value="false" if="$(eval map == false)"/>
+    </include>
 
     <arg name="use_rviz" default="false"/>
     <group if="$(arg use_rviz)">

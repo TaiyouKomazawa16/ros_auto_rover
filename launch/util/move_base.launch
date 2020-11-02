@@ -1,4 +1,5 @@
 <launch>
+    <arg name="use_map" default="true"/>
     <arg name="base_global_planner" default="navfn/NavfnROS"/>
     <arg name="base_local_planner" default="dwa_local_planner/DWAPlannerROS"/>
     <!-- <arg name="base_local_planner" default="base_local_planner/TrajectoryPlannerROS"/> -->
@@ -11,7 +12,11 @@
         <rosparam file="$(find ros_auto_rover)/params/base_local_planner_params.yaml" command="load" />
         <rosparam file="$(find ros_auto_rover)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
         <rosparam file="$(find ros_auto_rover)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
-        <rosparam file="$(find ros_auto_rover)/params/local_costmap_params.yaml" command="load" />
-        <rosparam file="$(find ros_auto_rover)/params/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find ros_auto_rover)/params/active_costmap_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find ros_auto_rover)/params/static_costmap_params.yaml" command="load" ns="global_costmap" if="$(arg use_map)" />
+        <rosparam file="$(find ros_auto_rover)/params/active_costmap_params.yaml" command="load" ns="global_costmap" unless="$(arg use_map)">
+            <param name="global_costmap/width" value="100.0" unless="$(arg use_map)"/>
+            <param name="global_costmap/height" value="100.0" unless="$(arg use_map)"/>
+        </rosparam>
     </node>
 </launch>
