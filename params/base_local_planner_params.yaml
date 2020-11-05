@@ -29,9 +29,9 @@ DWAPlannerROS:
   acc_lim_th: 3.2
 
   max_vel_x: 0.32
-  min_vel_x: 0.10
+  min_vel_x: -0.32
   max_vel_y: 0.32
-  min_vel_y: 0.10
+  min_vel_y: -0.32
   
   max_vel_trans: 0.32
   mix_vel_trans: 0.10
@@ -40,8 +40,9 @@ DWAPlannerROS:
 
   # Goal Tolerance Parameters
   yaw_goal_tolerance: 0.15
-  xy_goal_tolerance: 0.2
+  xy_goal_tolerance: 0.28
   latch_xy_goal_tolerance: false
 
-  scaled_pa​​th_factor: 0.75
+  scaling_speed: 0.15
+  oscillation_reset_dist: 0.08
 
