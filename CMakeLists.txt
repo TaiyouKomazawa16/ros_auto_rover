@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   ros_ps_rover_base
   urg_node
   map_server
+  ros_ps_slam
 )
 
 ## System dependencies are found with CMake's conventions

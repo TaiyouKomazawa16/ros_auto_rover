@@ -44,5 +44,5 @@ DWAPlannerROS:
   latch_xy_goal_tolerance: false
 
   scaling_speed: 0.15
-  oscillation_reset_dist: 0.08
+  oscillation_reset_dist: 0.16
 

@@ -13,9 +13,8 @@
         <arg name="use_map" value="false" if="$(eval map == false)"/>
     </include>
 
-    <include file="$(find ros_auto_rover)/launch/util/amcl.launch">
-        <arg name="use_map" value="false" if="$(eval map == false)"/>
-    </include>
+    <include file="$(find ros_auto_rover)/launch/util/amcl.launch" unless="$(eval map == false)"/>
+    <include file="$(find ros_ps_slam)/launch/util/slam_gmapping.launch" if="$(eval map == false)"/>
 
     <arg name="use_rviz" default="false"/>
     <group if="$(arg use_rviz)">

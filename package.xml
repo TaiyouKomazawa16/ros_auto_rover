@@ -54,6 +54,7 @@
   <depend>ros_ps_rover_base</depend>
   <depend>urg_node</depend>
   <depend>map_server</depend>
+  <depend>ros_ps_slam</depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

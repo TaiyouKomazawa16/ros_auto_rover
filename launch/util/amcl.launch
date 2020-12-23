@@ -1,7 +1,4 @@
 <launch>
-  <arg name="use_map" default="true"/>
-  
-
   <node pkg="amcl" type="amcl" name="amcl" output="screen">
     <param name="odom_model_type" value="omni-corrected"/>
     <param name="transform_tolerance" value="0.2"/>
@@ -32,8 +29,7 @@
     <param name="update_min_a" value="0.5"/>
     <param name="odom_frame_id" value="odom"/>
     <param name="base_frame_id" value="base_link"/>
-    <param name="glonal_frame_id" value="map" if="$(arg use_map)"/>
-    <param name="glonal_frame_id" value="scan" unless="$(arg use_map)"/>
+    <param name="global_frame_id" value="map"/>
     <param name="resample_interval" value="2"/>
     <param name="transform_tolerance" value="0.1"/>
     <param name="recovery_alpha_slow" value="0.001"/>
