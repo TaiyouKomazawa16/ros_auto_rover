@@ -1,6 +1,6 @@
 NavfnROS:
   allow_unknown: true
-  default_tolerance: 0.1
+  default_tolerance: 0.3
 
 TrajectoryPlannerROS:
     acc_lim_x: 2.0
@@ -24,9 +24,12 @@ TrajectoryPlannerROS:
 
 DWAPlannerROS:
   # Robot configuration parameters  
-  acc_lim_x: 5.4
-  acc_lim_y: 5.4
-  acc_lim_th: 3.2
+  #acc_lim_x: 5.4
+  #acc_lim_y: 5.4
+  #acc_lim_th: 3.2
+  acc_lim_x: 2.0
+  acc_lim_y: 2.0
+  acc_lim_th: 1.2
 
   max_vel_x: 0.32
   min_vel_x: -0.32
@@ -34,15 +37,22 @@ DWAPlannerROS:
   min_vel_y: -0.32
   
   max_vel_trans: 0.32
-  mix_vel_trans: 0.10
+  #min_vel_trans: 0.10
+  min_vel_trans: 0.08
   max_vel_theta: 1.3
-  mix_vel_theta: 0.5
+  #min_vel_theta: 0.5
+  min_vel_theta: 0.25
+
 
   # Goal Tolerance Parameters
-  yaw_goal_tolerance: 0.15
-  xy_goal_tolerance: 0.28
+  yaw_goal_tolerance: 0.18
+  xy_goal_tolerance: 0.25
   latch_xy_goal_tolerance: false
 
   scaling_speed: 0.15
   oscillation_reset_dist: 0.16
+
+  path_distance_bias: 25.0
+  goal_distance_bias: 32.0
+  occdist_scale: 0.006
 
