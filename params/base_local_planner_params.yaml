@@ -1,29 +1,38 @@
-NavfnROS:
+GlobalPlanner:
+  allow_unknown: true
+  default_tolerance: 0.3
+  use_grid_path: false
+  use_dijkstra: true
+  old_navfn_behavior: false
+
+  orientation_mode: 2 #Interpolate mode
+
+NavfnROS: #テスト用グローバルプランナー
   allow_unknown: true
   default_tolerance: 0.3
 
 TrajectoryPlannerROS:
-    acc_lim_x: 2.0
-    acc_lim_y: 2.0
-    acc_lim_theta: 3.2
-    max_vel_x: 0.45
-    min_vel_x: 0.15
-    max_vel_y: 0.45
-    min_vel_y: 0.15
-    max_vel_theta: 1.40
-    min_vel_theta: -1.40
-    min_in_place_vel_theta: 0.65
-    holonomic_robot: true
-    yaw_goal_tolerance: 0.15
-    xy_goal_tolerance: 0.15
-    path_distance_bias: 0.8
-    goal_distance_bias: 0.3
-    occdist_scale: 0.01
-    
-    meter_scoring: true
+  acc_lim_x: 2.0
+  acc_lim_y: 2.0
+  acc_lim_theta: 3.2
+  max_vel_x: 0.45
+  min_vel_x: 0.15
+  max_vel_y: 0.45
+  min_vel_y: 0.15
+  max_vel_theta: 1.40
+  min_vel_theta: -1.40
+  min_in_place_vel_theta: 0.65
+  holonomic_robot: true
+  yaw_goal_tolerance: 0.15
+  xy_goal_tolerance: 0.15
+  path_distance_bias: 0.8
+  goal_distance_bias: 0.3
+  occdist_scale: 0.01
+
+  meter_scoring: true
 
 DWAPlannerROS:
-  # Robot configuration parameters  
+  # Robot configuration parameters
   #acc_lim_x: 5.4
   #acc_lim_y: 5.4
   #acc_lim_th: 3.2
@@ -35,7 +44,7 @@ DWAPlannerROS:
   min_vel_x: -0.32
   max_vel_y: 0.32
   min_vel_y: -0.32
-  
+
   max_vel_trans: 0.32
   #min_vel_trans: 0.10
   min_vel_trans: 0.08
@@ -52,7 +61,6 @@ DWAPlannerROS:
   scaling_speed: 0.15
   oscillation_reset_dist: 0.16
 
-  path_distance_bias: 25.0
-  goal_distance_bias: 32.0
+  path_distance_bias: 24.0
+  goal_distance_bias: 35.0
   occdist_scale: 0.006
-

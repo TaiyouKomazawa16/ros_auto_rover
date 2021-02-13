@@ -1,0 +1,11 @@
+MoveSlowAndClear:
+  clearing_distance: 0.5
+  limited_trans_speed: 0.16
+  limited_rot_speed: 0.16
+  limited_distance: 0.45
+  planner_namespace: "DWAPlannerROS"
+
+RotateRecovery:
+  acc_lim_th: 1.2
+  max_rotational_vel: 0.5
+  min_in_place_rotational_vel: 0.3
