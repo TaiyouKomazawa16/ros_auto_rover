@@ -14,7 +14,7 @@
                                                 ]</rosparam>
 
         <rosparam file="$(find ros_auto_rover)/params/move_base_params.yaml" command="load" />
-        <rosparam file="$(find ros_auto_rover)/params/base_local_planner_params.yaml" command="load" />
+        <rosparam file="$(find ros_auto_rover)/params/base_planner_params.yaml" command="load" />
         <rosparam file="$(find ros_auto_rover)/params/recovery_behaviors_params.yaml" command="load" />
         <rosparam file="$(find ros_auto_rover)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
         <rosparam file="$(find ros_auto_rover)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
